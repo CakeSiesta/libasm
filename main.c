@@ -13,11 +13,13 @@ extern char	*ft_strcpy(char *dest, const char *src);
 
 int	main(void)
 {
-	char s[] = "coucou";
+	char s[] = "couc";
 	char d[] = "salut";
 
-	printf("%s\n", s);
+	printf("source before ==[%s]\n", s);
+	printf("destin before ==[%s]\n", d);
 	ft_strcpy(s, d);
-	printf("%s\n", s);
+	printf("source after  ==[%s]\n", s);
+	printf("destin after  ==[%s]\n", d);
 	return 0;
 }

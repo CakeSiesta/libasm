@@ -7,8 +7,8 @@ ft_strcpy:
 	xor	rax, rax
 
 cpy_loop:
-	mov	cl, BYTE [rsi + rax] ; moves src (rsi) at byte index (rax) into cl (8bits long srcratch register) 
-	mov	BYTE [rdi + rax], cl ; moves byte with index (cl) to rdi (dest) at index rax
+	mov	cl, BYTE [rsi + rax] ; moves src (rsi) at byte index (rax) into cl (8bits long scratch register) 
+	mov	BYTE [rdi + rax], cl ; moves byte with index (cl) to dest (rdi) at index rax
 	cmp	cl, 0
 	je	exit
 	inc	rax
