@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 //extern size_t	ft_strlen(char const *str);
 //
@@ -12,6 +13,11 @@ extern char	*ft_strcpy(char *dest, const char *src);
 
 int	main(void)
 {
-	printf("%s\n", ft_strcpy("coucou", "coucou"));
+	char s[] = "coucou";
+	char d[] = "salut";
+
+	printf("%s\n", s);
+	ft_strcpy(s, d);
+	printf("%s\n", s);
 	return 0;
 }
