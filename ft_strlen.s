@@ -1,3 +1,5 @@
+;size_t	ft_strlen(char const *str);
+
 section .text
 	global ft_strlen
 
