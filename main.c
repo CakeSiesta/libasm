@@ -9,17 +9,38 @@
 //	return (0);
 //}
 
-extern char	*ft_strcpy(char *dest, const char *src);
+//extern char	*ft_strcpy(char *dest, const char *src);
+//
+//int	main(void)
+//{
+//	char s[] = "couc";
+//	char d[] = "salut";
+//
+//	printf("source before ==[%s]\n", s);
+//	printf("destin before ==[%s]\n", d);
+//	ft_strcpy(s, d);
+//	printf("source after  ==[%s]\n", s);
+//	printf("destin after  ==[%s]\n", d);
+//	return 0;
+//}
+
+extern int ft_strcmp(const char *s1, const char *s2);
 
 int	main(void)
 {
-	char s[] = "couc";
-	char d[] = "salut";
+	char	str1[] = "abcd", str2[] = "abCd", str3[] = "abcd";
+	int	result;
 
-	printf("source before ==[%s]\n", s);
-	printf("destin before ==[%s]\n", d);
-	ft_strcpy(s, d);
-	printf("source after  ==[%s]\n", s);
-	printf("destin after  ==[%s]\n", d);
+	result = ft_strcmp(str1, str2);
+	printf("ft_strcmp(str1, str2) = [%d]\n", result);
+	result = strcmp(str1, str2);
+	printf("strcmp(str1, str2) = [%d]\n", result);
+
+	result = ft_strcmp(str1, str3);
+	printf("\n\nft_strcmp(str1, str2) = [%d]\n", result);
+	result = strcmp(str1, str3);
+	printf("strcmp(str1, str2) = [%d]\n", result);
+
 	return 0;
 }
+

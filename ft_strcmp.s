@@ -2,13 +2,23 @@ section .text
 	global ft_strcmp
 
 ft_strcmp:
-	xor	rax, rax
+	mov	rax, -1
 
 cmp_loop:
 
+	inc	rax
+	mov	cl, BYTE[rdi + rax]
+	mov	dl, BYTE[rsi + rax]
+	cmp	cl, 0 			; if str1[i] == '\0'
+	je	exit
+	cmp	dl, 0 			; if str2[i] == '\0'
+	je	exit
+	cmp	cl, dl 			; if str1[i] == str2[i]
+	je	cmp_loop
+	jmp	exit			; if str1[i] != str2[i]
 
-	inc	rdi
-	inc	rsi
-	jmp	cmp_loop
-	
 exit:
+	movsx	rax, cl
+	movsx	rdx, dl
+	sub	rax, rdx		; ret the diff of str1[i] and str2[i]
+	ret
