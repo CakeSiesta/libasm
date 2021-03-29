@@ -4,16 +4,20 @@ section .text
 	global ft_strcpy
 
 ft_strcpy:
-	xor	rax, rax
+	xor	rcx, rcx
+	xor	rdx, rdx
+	cmp	rsi, 0
+	jz	exit
+	jmp	cpy_loop
 
 cpy_loop:
-	mov	cl, BYTE [rsi + rax] ; moves src (rsi) at byte index (rax) into cl (8bits long scratch register) 
-	mov	BYTE [rdi + rax], cl ; moves byte with index (cl) to dest (rdi) at index rax
+	mov	cl, BYTE[rcx + rsi]
+	mov	BYTE[rcx + rdi], cl
 	cmp	cl, 0
-	je	exit
-	inc	rax
+	jz	exit
+	inc	rcx
 	jmp	cpy_loop
 
 exit:
-	movsx	rax, cl ; put value of dst (rsi) into rax (the return value register) in correct signed register form
+	mov rax, rdi
 	ret

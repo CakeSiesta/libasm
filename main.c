@@ -1,20 +1,22 @@
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
 #include <errno.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdlib.h>
 
 # define BUFF_SIZE 500
 
-//extern size_t	ft_strlen(char const *str);
+extern size_t	ft_strlen(char const *str);
 //
 //int	main()
-//{
+//{9
 //	printf("%zu\n", ft_strlen("123456789"));
 //	return (0);
 //}
 
-//extern char	*ft_strcpy(char *dest, const char *src);
+extern char	*ft_strcpy(char *dest, const char *src);
 //
 //int	main(void)
 //{
@@ -29,7 +31,7 @@
 //	return 0;
 //}
 
-//extern int ft_strcmp(const c9har *s1, const char *s2);
+extern int ft_strcmp(const char *s1, const char *s2);
 //
 //int	main(void)
 //{
@@ -49,7 +51,7 @@
 //	return 0;
 //}
 
-//extern ssize_t	ft_write(int fd, const void *buf, size_t count);
+extern ssize_t	ft_write(int fd, const void *buf, size_t count);
 //
 //int	main(void)
 //{
@@ -57,17 +59,38 @@
 //}
 
 extern ssize_t ft_read(int fd, void *buf, size_t count);
+//
+//int	main(void)
+//{
+//	ssize_t	a;
+//	int	fd;
+//	char	buf[BUFF_SIZE+1];
+//
+//	fd = -1;
+//	a = ft_read(fd, buf, BUFF_SIZE);
+//	printf("fd = %d, %zd, error : %s\n", fd, a, strerror(errno));
+//	fd = open("test_case", O_RDONLY);
+//	a = ft_read(fd, buf, BUFF_SIZE);
+//	printf("fd = %d, %zd, str : %s\n", fd, a, buf);
+//}
+
+extern char *ft_strdup(const char *s);
 
 int	main(void)
 {
-	ssize_t	a;
-	int	fd;
-	char	buf[BUFF_SIZE+1];
+	char		*str;
+	char		f[] = "h";
+	char		s[] = "hello";
+	char		t[] = "";
 
-	fd = -1;
-	a = ft_read(fd, buf, BUFF_SIZE);
-	printf("fd = %d, %zd, error : %s\n", fd, a, strerror(errno));
-	fd = open("test_case", O_RDONLY);
-	a = ft_read(fd, buf, BUFF_SIZE);
-	printf("fd = %d, %zd, str : %s\n", fd, a, buf);
+	printf("[+] STRDUP [+]\n");
+	printf("[-] Str init [-]\n");
+	str = ft_strdup(f);
+	printf("[-] Str after strdup (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	str = ft_strdup(s);
+	printf("[-] Str after strdup (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	str = ft_strdup(t);
+	printf("[-] Str after strdup (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	printf("[+] END OF STRDUP [+]\n");
+
 }
