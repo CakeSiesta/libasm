@@ -5,10 +5,16 @@ section .text
 	global ft_write
 
 ft_write:
-	mov	rax, 1	; syscall of write
-	syscall		; calls write
+	mov	rax, 1				; syscall of write
+	syscall					; calls write
 	cmp	rax, 0
 	jl	error
 	ret
 
 error:
+	neg	rax				;neg*neg = pos
+	push	rax
+	call	__errno_location wrt ..plt
+	pop	rax
+	mov	rax, -1
+	ret
