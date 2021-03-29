@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+# define BUFF_SIZE 500
 
 //extern size_t	ft_strlen(char const *str);
 //
@@ -44,9 +49,25 @@
 //	return 0;
 //}
 
-extern ssize_t	ft_write(int fd, const void *buf, size_t count);
+//extern ssize_t	ft_write(int fd, const void *buf, size_t count);
+//
+//int	main(void)
+//{
+//	ft_write(-1,"qwertyuiopasdfghjklzxcvbnm",25);
+//}
+
+extern ssize_t ft_read(int fd, void *buf, size_t count);
 
 int	main(void)
 {
-	ft_write(-1,"qwertyuiopasdfghjklzxcvbnm",25);
+	ssize_t	a;
+	int	fd;
+	char	buf[BUFF_SIZE+1];
+
+	fd = -1;
+	a = ft_read(fd, buf, BUFF_SIZE);
+	printf("fd = %d, %zd, error : %s\n", fd, a, strerror(errno));
+	fd = open("test_case", O_RDONLY);
+	a = ft_read(fd, buf, BUFF_SIZE);
+	printf("fd = %d, %zd, str : %s\n", fd, a, buf);
 }
