@@ -17,25 +17,30 @@ extern char *ft_strdup(const char *s);
 
 void	check_strlen(void)
 {
+	printf("STRLEN CHECK \n\n");
 	printf("%zu\n", ft_strlen("123456789"));
 	printf("%zu\n", strlen("123456789"));
 }
 
 void	check_strcpy(void)
 {
-	char s[] = "couc";
-	char d[] = "salut";
+	printf("STRCPY CHECK \n\n");
+	char s[20] = "coucou";
+	char d[20] = "salut";
+	char s2[20] = "coucou";
+	char d2[20] = "salut";
 
 	printf("source before ==[%s]\n", s);
 	printf("destin before ==[%s]\n", d);
-	ft_strcpy(s, d);
+	ft_strcpy(s2, d2);
 	printf("source after  ==[%s]\n", s);
 	printf("destin after  ==[%s]\n", d);
 }
 
 void	check_strcmp(void)
 {
-	char	str1[] = "abcd", str2[] = "abCd", str3[] = "abcd";
+	printf("STRCMP CHECK \n\n");
+	char	str1[20] = "abcd", str2[20] = "abCd", str3[20] = "abcd";
 	int	result;
 
 	result = ft_strcmp(str1, str2);
@@ -51,6 +56,7 @@ void	check_strcmp(void)
 
 void	check_write(void)
 {
+	printf("WRITE CHECK \n\n");
 	ft_write(1,"qwertyuiopasdfghjklzxcvbnm",25);
 	printf("\n");
 	write(1,"qwertyuiopasdfghjklzxcvbnm",25);
@@ -62,6 +68,7 @@ void	check_read(void)
 	int	fd;
 	char	buf[BUFF_SIZE+1];
 
+	printf("READ CHECK \n\n");
 	fd = -1;
 	a = ft_read(fd, buf, BUFF_SIZE);
 	printf("fd = %d, %zd, error : %s\n", fd, a, strerror(errno));
@@ -78,6 +85,7 @@ void	check_read(void)
 
 void	check_strdup(void)
 {
+	printf("STRDUP CHECK \n\n");
 	char		*str;
 	char		f[] = "h";
 	char		s[] = "hello";
@@ -86,11 +94,23 @@ void	check_strdup(void)
 	printf("[+] STRDUP [+]\n");
 	printf("[-] Str init [-]\n");
 	str = ft_strdup(f);
-	printf("[-] Str after strdup (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	printf("[-] Str after strdup1 (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	free(str);
+	str = strdup(f);
+	printf("[-] Str after strdup1 real (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	free(str);
 	str = ft_strdup(s);
-	printf("[-] Str after strdup (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	printf("[-] Str after strdup2 (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	free(str);
+	str = strdup(s);
+	printf("[-] Str after strdup2 real (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	free(str);
 	str = ft_strdup(t);
-	printf("[-] Str after strdup (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	printf("[-] Str after strdup3 (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	free(str);
+	str = strdup(t);
+	printf("[-] Str after strdup3 real (\"%s\") %d [-]\n", str, (int)ft_strlen(str));
+	free(str);
 	printf("[+] END OF STRDUP [+]\n");
 
 }
