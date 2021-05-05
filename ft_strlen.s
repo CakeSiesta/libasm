@@ -1,9 +1,9 @@
 ;size_t	ft_strlen(char const *str);
 
 section .text
-	global ft_strlen
+	global _ft_strlen
 
-ft_strlen:
+_ft_strlen:
 	xor	rax,rax
 	jmp	count
 
