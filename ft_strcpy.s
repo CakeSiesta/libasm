@@ -11,9 +11,9 @@ ft_strcpy:
 	jmp	cpy_loop
 
 cpy_loop:
-	mov	cl, BYTE[rcx + rsi]
-	mov	BYTE[rcx + rdi], cl
-	cmp	cl, 0
+	mov	dl, BYTE[rcx + rsi]
+	mov	BYTE[rcx + rdi], dl
+	cmp	dl, 0
 	jz	exit
 	inc	rcx
 	jmp	cpy_loop
