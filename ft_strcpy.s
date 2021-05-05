@@ -1,9 +1,9 @@
 ; char *strcpy (char *dest, const char *src);
 
 section .text
-	global _ft_strcpy
+	global ft_strcpy
 
-_ft_strcpy:
+ft_strcpy:
 	xor	rcx, rcx
 	xor	rdx, rdx
 	cmp	rsi, 0
