@@ -1,10 +1,10 @@
 ; ssize_t read(int fd, void *buf, size_t count)
 
 section .text
-	extern __errno_location
-	global ft_read
+	extern ___error
+	global _ft_read
 
-ft_read:
+_ft_read:
 	mov	rax,0
 	syscall
 	cmp	rax,0
@@ -14,7 +14,7 @@ ft_read:
 error:
 	neg 	rax				;neg*neg=pos
 	push	rax
-	call	__errno_location wrt ..plt
+	call	___error
 	pop	rax
 	mov	rax, -1
 	ret

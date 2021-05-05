@@ -1,6 +1,6 @@
 NAME = libasm.a
 
-ASM = nasm -f elf64
+ASM = nasm -f macho64
 #LINUX	= -f elf64
 #MAC	= -f macho64
 
