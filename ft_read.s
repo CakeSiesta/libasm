@@ -15,6 +15,6 @@ error:
 	neg 	rax				;neg*neg=pos
 	push	rax
 	call	__errno_location wrt ..plt
-	pop	rax
+	pop	qword [rax]
 	mov	rax, -1
 	ret
